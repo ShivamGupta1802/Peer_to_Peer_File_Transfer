@@ -1,0 +1,77 @@
+import React, { useEffect, useState, useRef } from 'react';
+import { Network, Users, MessageSquare, Share2, Loader2, Upload, Download, FileBox } from 'lucide-react';
+import Peer from 'peerjs';
+
+interface Message {
+  from: string;
+  content: string;
+  timestamp: number;
+}
+
+interface FileTransfer {
+  id: string;
+  name: string;
+  size: number;
+  from: string;
+  timestamp: number;
+  status: 'pending' | 'downloading' | 'complete';
+}
+
+function App() {
+  const [peerId, setPeerId] = useState<string>('');
+
+    };
+  }, []);
+
+  
+
+  return (
+    
+
+          <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 p-8">
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-white rounded-xl shadow-xl p-8">
+          {/* Header */}
+          <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center gap-3">
+              <Network className="w-8 h-8 text-indigo-600" />
+              <h1 className="text-3xl font-bold text-gray-800">P2P File Sharing</h1>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-gray-600">
+              <Users className="w-4 h-4" />
+              <span>{connectedPeers.length} peers connected</span>
+            </div>
+          </div>
+         
+          {/* Peer ID Display */}
+          <div className="mb-8 p-4 bg-gray-50 rounded-lg shadow-md">
+  <h2 className="text-lg font-semibold mb-2">Set Your Name</h2>
+  <div className="flex items-center">
+    <input
+      type="text"
+      value={userName}
+      onChange={(e) => setUserName(e.target.value)}
+      placeholder="Enter your name"
+      className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+    />
+    <button
+      onClick={() => {
+        // Logic to handle setting the name can be added here
+        console.log("Name set to:", userName);
+      }}
+      className="ml-4 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+    >
+      Set Name
+    </button>
+  </div>
+  <div className="mt-2">
+    <span className="text-sm text-gray-600">Your Peer ID:</span>
+    <code className="bg-gray-100 px-3 py-1 rounded text-sm font-mono">
+      {peerId || 'Connecting...'}
+    </code>
+  </div>
+</div>
+  );
+}
+
+export default App;
